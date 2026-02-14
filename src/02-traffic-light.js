@@ -24,23 +24,23 @@
 export function getTrafficAction(color) {
   // Your code here
   let signal = color.toLowerCase();
+
   switch(signal) {
     case "green" :
-      console.log("Go");
-      break;
+      return "GO";
+
     case "yellow" :
-      console.log("Slow Down");
-      break;
+      return "SLOW DOWN";
+
     case "red" :
-      console.log("Stop")
-      break;
+      return "STOP";
+
     case "flashing red" :
-      console.log("Stop and proceed with caution");
-      break;
+      return "STOP AND PROCEED WITH CAUTION";
+      
     default :
-      console.log("Invalid signal")
+      return "INVALID SIGNAL"
 
   }
 }
 
-getTrafficAction("Green");

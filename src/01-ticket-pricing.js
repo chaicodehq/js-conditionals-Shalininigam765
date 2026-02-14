@@ -23,60 +23,33 @@
  * @returns {number} The ticket price, or -1 for invalid input
  */
 export function getTicketPrice(age, isWeekend) {
-  // Your code here
-  const children = 0 <= age && age<= 12;
-  const Teens = 12 < age && age<= 17;
-  const Adults = 17 < age && age<= 59;
-  const Seniors = age >= 60;
+  
+    if (typeof age !== "number" || age <0) {
+    return -1;
+    }
 
-  if (!isWeekend) {
-      if (children) {
-          console.log("Ticket price is", 8);
-      }
+    let price;
 
-      else if (Teens) {
-          console.log("Ticket price is", 12);
-      }
+    if (age >=0 && age<= 12) {
+        price = 8;
+    }
 
-      else if (Adults) {
-          console.log("Ticket price is", 15);
-      }
+    else if ( age >12 && age<= 17) {
+        price = 12;
+    }
 
-      else if (Seniors) {
-          console.log("Ticket price is", 10);
-      }
+    else if (17 < age && age<= 59) {
+        price = 15;
+    }
 
-      else if(age <0){
-        console.log(-1)
-      }
+    else {
+        price = 10;
+    }
 
-  }
+    if (isWeekend) {
+        price +=3;
+    }
 
-  else if( isWeekend) {
-      if (children) {
-          console.log("Ticket price is $",(8+3));
-      }
-
-      else if (Teens) {
-          console.log("Ticket price is $", 12+3);
-      }
-
-      else if (Adults) {
-          console.log("Ticket price is", 3+15);
-      }
-
-      else if (Seniors) {
-          console.log("Ticket price is", 3+10);
-      }
-
-      else if(age <0){
-        console.log(-1)
-      }
-
-  }
-
+    return price;
 }
 
-getTicketPrice(30, true);
-getTicketPrice(14, false);
-getTicketPrice(-1,false);
